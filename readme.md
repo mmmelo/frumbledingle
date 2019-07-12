@@ -10,7 +10,8 @@ Frumbledingle Corp is struggling with its warehouse management, and has been loo
 
 ### Frontend Operations
 - Set up VueJs components for the various pages (one of these has been done for you)
-- The *categories* page **MUST** include the name of the relevant parent category, if there is one.
+- The *categories* page **MUST** include the name of the relevant parent *category* in the table for each *category*, if there is one.
+- The *items* page **MUST** include the name of the relevant *location* and *category* in the table for each *item*.
 - The navigation links will tell you what pages need to work
 - Use *axios* (included) to retrieve data via AJAX
 
@@ -20,6 +21,7 @@ Frumbledingle Corp is struggling with its warehouse management, and has been loo
 - Any other **cool stuff** you want to add after completing the requirements here will be taken into consideration.
 
 ## Setup Instructions
+- REQUIRED: `php`, `git`, `composer`, `mysql`, `node`, `npm`
 - `git clone` this repo
 - Run `composer install`
 - Make sure to set the database information your `.env` file
@@ -39,7 +41,8 @@ The data for this application will be defined as below. Migrations have already 
 
 ### Categories
 - Columns: ID, Name, Parent ID
-- A *category* has many *items* and **may** have a parent *category*
+- A *category* has many *items*
+- A *category* belongs to a parent *category*, though the parent may be null
 
 ## The Final Battle
 After making the pages for individual models work, you will need to create a report page. This page must include a price input, and should give a list of all categories for each location (including the parent category name), and the number of items greater or equal to that price in that category/location pairing.
