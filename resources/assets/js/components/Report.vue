@@ -2,17 +2,17 @@
     <div>
 	    <h5>Report</h5>
 	    <hr>
-<!--        <form @submit.prevent="getReport">-->
-<!--            <div class="create-location-form input-group">-->
-<!--                <div class="input-group-prepend">-->
-<!--                    <span class="input-group-text">Name</span>-->
-<!--                </div>-->
-<!--                <input v-model="newLocationName" type="text" class="form-control" placeholder="Location Name" />-->
-<!--                <div class="input-group-append">-->
-<!--                    <button class="btn btn-primary">Create</button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </form>-->
+        <form @submit.prevent="getReport">
+            <div class="create-location-form input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Price</span>
+                </div>
+                <input v-model="price" type="text" class="form-control" placeholder="Price ( Greater or Equal) to Match" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary">Run</button>
+                </div>
+            </div>
+        </form>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <th>Location</th>
