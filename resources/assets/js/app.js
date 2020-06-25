@@ -11,4 +11,8 @@ window.Vue = require('vue');
 
 Vue.component('locations-table', require('./components/LocationsTable.vue'));
 
+// ITems
+Vue.component('items-table', require('./components/items.vue'));
+Vue.component('categories-table', require('./components/categories.vue'));
+
 new Vue({el: '#app-container'});
