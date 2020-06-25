@@ -37,7 +37,7 @@
                     <td>{{ row.id }}</td>
                     <td>{{ row.name }}</td>
                     <td>{{ row.parent }}</td>
-                    <td align="center"><button class="btn btn-danger btn-sm" @click.prevent="deleteLocation(row.id)"><i class="fa fa-times" /> Delete</button></td>
+                    <td align="center"><button class="btn btn-danger btn-sm" @click.prevent="deleteCategories(row.id)"><i class="fa fa-times" /> Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -73,7 +73,7 @@ export default {
         },
         deleteCategories(id) {
             return axios.post('/api/categories/' + id, {_method: 'DELETE'})
-                .then(this.getLocations)
+                .then(this.getCategories)
                 .catch(console.error);
         }
     }
