@@ -13,7 +13,6 @@
 		            <span class="input-group-text">Categories</span>
 	            </div>
 	            <select class="form-control" v-model="newItemCategory">
-		            <option>Select</option>
 		            <option v-for="category in categories" v-bind:key="category.id" v-bind:value="category.id">
 			            {{ category.name}}
 		            </option>
@@ -23,7 +22,6 @@
 		            <span class="input-group-text">Location</span>
 	            </div>
 	            <select class="form-control" v-model="newItemLocation">
-		            <option>Select</option>
 		            <option v-for="local in locations" v-bind:key="local.id" v-bind:value="local.id">
 			            {{ local.name}}
 		            </option>
@@ -105,8 +103,8 @@ export default {
                 .catch(console.error);
         },
         deleteItem(id) {
-            return axios.post('/api/locations/' + id, {_method: 'DELETE'})
-                .then(this.getLocations)
+            return axios.post('/api/items/' + id, {_method: 'DELETE'})
+                .then(this.getItems)
                 .catch(console.error);
         },
 	    getCategories() {
