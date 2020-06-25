@@ -16,7 +16,7 @@ class CategoryContoller extends Controller
      */
     public function index()
     {
-        return response()->json( ['data'=>array()]);
+        return response()->json( Category::with( 'parent')->get());
     }
 
     /**
@@ -37,7 +37,10 @@ class CategoryContoller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create([
+        	'name' => $request->input('name'),
+	        'parent_id' => $request->input( 'parent_id'),
+        ]);
     }
 
     /**

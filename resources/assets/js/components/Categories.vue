@@ -1,27 +1,42 @@
 <template>
     <div>
-	    <h1>Categories</h1>
-        <form @submit.prevent="createLocation">
+	    <h3>Categories</h3>
+	    <hr>
+        <form @submit.prevent="createCategories">
             <div class="create-location-form input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name</span>
                 </div>
-                <input v-model="newLocationName" type="text" class="form-control" placeholder="Location Name" />
+                <input v-model="newCategoryName" type="text" class="form-control" placeholder="Location Name" />
+
+	            <div class="input-group-prepend">
+		            <span class="input-group-text">Parent</span>
+	            </div>
+	            <select v-model="categoryParent" class="form-control">
+		            <option value="null">Category</option>
+		            <option v-for="category in categories" v-bind:value="category.id" v-bind:key="category.id">
+			            {{category.name}}
+		            </option>
+	            </select>
+
+
                 <div class="input-group-append">
-                    <button class="btn btn-primary">Create</button>
+                    <button class="btn btn-primary">Create Category</button>
                 </div>
             </div>
         </form>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <th>ID</th>
-                <th>Name</th>
+                <th>Category Name</th>
+                <th>Parent</th>
                 <th></th>
             </thead>
             <tbody>
-                <tr v-for="row in locations" :key="row.id">
+                <tr v-for="row in categories" :key="row.id">
                     <td>{{ row.id }}</td>
                     <td>{{ row.name }}</td>
+                    <td>{{ row.parent }}</td>
                     <td align="center"><button class="btn btn-danger btn-sm" @click.prevent="deleteLocation(row.id)"><i class="fa fa-times" /> Delete</button></td>
                 </tr>
             </tbody>
@@ -35,28 +50,29 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            locations: [],
-            newLocationName: '',
+            categories: [],
+	        newCategoryName: '',
+	        categoryParent: null,
         };
     },
     mounted() {
-        this.getLocations();
+        this.getCategories();
     },
     methods: {
-        getLocations() {
-            return axios.get('/api/locations')
+        getCategories() {
+            return axios.get('/api/categories')
                 .then(response => {
-                    this.locations = response.data;
+                    this.categories = response.data;
                 }).catch(console.error);
         },
-        createLocation() {
-            return axios.post('/api/locations', {name: this.newLocationName})
-                .then(this.getLocations)
-                .then(() => this.newLocationName = '')
+        createCategories() {
+            return axios.post('/api/categories', {name: this.newCategoryName, parent_id: this.categoryParent})
+                .then(this.getCategories)
+                .then(() => this.newCategoryName = '')
                 .catch(console.error);
         },
-        deleteLocation(id) {
-            return axios.post('/api/locations/' + id, {_method: 'DELETE'})
+        deleteCategories(id) {
+            return axios.post('/api/categories/' + id, {_method: 'DELETE'})
                 .then(this.getLocations)
                 .catch(console.error);
         }
