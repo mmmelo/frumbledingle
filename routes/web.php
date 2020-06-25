@@ -20,4 +20,5 @@ Route::get('items', 'ItemController@index');
 
 // MMM
 Route::get('categories', 'CategoryContoller@index');
+Route::get('report', 'ReportContoller@index');
 
