@@ -23,9 +23,9 @@
             </thead>
             <tbody>
                 <tr v-for="row in report" :key="row.id">
-                    <td>{{ row.location }}</td>
-                    <td>{{ row.parent_cat }}</td>
-                    <td>{{ row.category }}</td>
+                    <td>{{ row.loc_name }}</td>
+                    <td>{{ row.parent_name }}</td>
+                    <td>{{ row.cat_name }}</td>
                     <td>{{ row.count }}</td>
                     <td align="center"><button class="btn btn-danger btn-sm" @click.prevent="deleteLocation(row.id)"><i class="fa fa-times" /> Delete</button></td>
                 </tr>
