@@ -41,6 +41,7 @@ export default {
     data() {
         return {
             report: [],
+	        price:0,
         };
     },
     mounted() {
@@ -48,7 +49,7 @@ export default {
     },
     methods: {
 	    getReport() {
-            return axios.get('/api/report')
+            return axios.get('/api/report', { params: { price: this.price}})
                 .then(response => {
                     this.report = response.data;
                 }).catch(console.error);
