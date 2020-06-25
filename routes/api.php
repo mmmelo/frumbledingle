@@ -17,3 +17,4 @@ Route::resource('locations', 'Api\LocationController', ['only' => ['index', 'sto
 Route::resource('items', 'Api\ItemController', ['only' => ['index', 'store', 'destroy']]);
 
 Route::resource('categories', 'Api\CategoryContoller', ['only' => ['index', 'store', 'destroy']]);
+Route::resource('report', 'Api\ReportController', ['only' => ['index', 'store', 'destroy']]);
