@@ -49,8 +49,8 @@
                 <tr v-for="row in items" :key="row.id">
                     <td>{{ row.id }}</td>
                     <td>{{ row.name }}</td>
-                    <td>{{ row.category.name }}</td>
-                    <td>{{ row.location.name }}</td>
+                    <td>{{ row.category? row.category.name:null }}</td>
+                    <td>{{ row.location? row.location.name:null }}</td>
                     <td align="center"><button class="btn btn-danger btn-sm" @click.prevent="deleteItem(row.id)"><i class="fa fa-times" /> Delete</button></td>
                 </tr>
             </tbody>

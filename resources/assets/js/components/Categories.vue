@@ -36,7 +36,7 @@
                 <tr v-for="row in categories" :key="row.id">
                     <td>{{ row.id }}</td>
                     <td>{{ row.name }}</td>
-                    <td>{{ row.parent }}</td>
+                    <td>{{ row.parent?row.parent.name:null }}</td>
                     <td align="center"><button class="btn btn-danger btn-sm" @click.prevent="deleteCategories(row.id)"><i class="fa fa-times" /> Delete</button></td>
                 </tr>
             </tbody>
